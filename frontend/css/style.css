@@ -1,0 +1,346 @@
+
+/* Paleta: Rosa claro, rosa bebê e branco */
+:root {
+  --rosa-claro: #f8c8dc;
+  --rosa-bebe: #fddde6;
+  --rosa-escuro: #e89ab8;
+  --branco: #ffffff;
+  --cinza: #555;
+}
+
+body {
+  font-family: 'Kanit', sans-serif;
+  font-weight: 200;
+  letter-spacing: 1px;
+  line-height: 18px;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  background-color: #ffe6f0;
+}
+
+.logo-text {
+  font-family: 'Playfair Display', serif; /* fonte elegante, pode trocar */
+  font-size: 48px;
+  line-height: 1.3;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(to bottom,  #43303c, #f4a6cf,#43303c); /* dourado degradê */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  
+}
+
+.logo-img {
+  width: 300px;
+  height: auto;
+  box-shadow: none;
+}
+
+header p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-top: -25px;
+  background: linear-gradient(to bottom,#b36a93); /* opcional, ajusta o contraste */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+}
+
+header div {
+  margin-top: -25px;
+}
+
+
+img {
+  width: 300px;
+  height: auto;
+  display: block;
+  margin: 20px 0;
+  
+}
+
+.imagens {
+  display: flex;
+  justify-content: center; /* ou space-between, space-around */
+  gap: 20px; /* espaço entre as imagens */
+  border-radius: 15px;
+}
+
+.imagens img {
+  width: 300px;
+  height: auto;
+  display: block;
+}
+
+header {
+  display: flex;
+  align-items: flex-start; /* alinha topo do texto com o topo da imagem */
+  justify-content: center; /* centraliza tudo horizontalmente */
+  gap: 20px;
+  background-color: var(--rosa-claro);
+  color: var(--cinza);
+  padding: 20px 0;
+  box-shadow: none;
+  text-align: center;
+  margin-left: -290px;
+}
+
+header .logo {
+  width: 300px; /* ajuste conforme necessário */
+  height: auto;
+  box-shadow: none;
+}
+
+
+
+header h1 {
+  font-size: 2.5em;
+}
+
+
+
+nav {
+  background-color: var(--rosa-escuro);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: -2px 0; /* diminui espaço vertical do nav */
+  line-height: normal; /* anula o line-height:3 do body só aqui */
+   margin: -15px 0;
+}
+
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 18px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  border-radius: 15px;
+}
+
+nav a:hover {
+  color: var(--rosa-bebe); /* ou qualquer cor de destaque */
+}
+
+
+.container {
+  max-width: 1400px;
+
+  margin: 40px auto; /* 🔹 40px em cima e embaixo */
+  padding: 20px;
+  background-color: var(--branco);
+  border-radius: 15px;
+}
+
+.sobre-nos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px; /* espaço entre imagem e texto */
+  flex-wrap: wrap; /* adapta em telas pequenas */
+}
+
+.sobre-nos img {
+  width: 250px;
+  height: 380px;
+  margin-right: 30px;
+  object-fit: cover;/* mostra toda a imagem */
+  border-radius: 50%; /* mantém formato elíptico */
+  object-position: 20% 80%; /* ajusta o enquadramento dentro da moldura */
+  border: 6px double var(--rosa-claro);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  background-color: white; /* fundo caso sobrem bordas */
+}
+
+
+
+.sobre-nos .texto {
+  max-width: 500px;
+  text-align: justify;
+  color: var(--cinza);
+  line-height: 1.8;
+  font-size: 1.1em;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas fixas */
+  gap: 30px; /* espaçamento entre os cards */
+  justify-items: center; /* centraliza os cards */
+  margin-top: 30px;
+}
+
+
+.card {
+  width: 100%;
+  max-width: 300px; /* limita o tamanho */
+  background-color: var(--branco);
+  border: 2px solid var(--rosa-claro);
+  border-radius: 15px;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.antes-depois {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.antes-depois img {
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.antes-depois img:hover {
+  transform: scale(1.03);
+}
+
+.banner {
+  background: linear-gradient(90deg, var(--rosa-claro), var(--rosa-escuro));
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .sobre-nos {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sobre-nos img {
+    width: 80%;
+  }
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+section h2 {
+  color: var(--rosa-escuro);
+  border-bottom: 2px solid var(--rosa-claro);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+section {
+  scroll-margin-top: 100px; /* ou o valor que quiser */
+}
+
+
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  background-color: var(--rosa-claro);
+  color: var(--cinza);
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
+}
+
+/* === Formulário de agendamento === */
+#agendamento {
+  margin-top: 40px;
+  padding: 30px;
+  background-color: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#agendamento h2 {
+  text-align: center;
+  color: #e89ab8;
+  margin-bottom: 25px;
+}
+
+.campo {
+  margin-bottom: 15px;
+}
+
+.campo label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.campo input:focus,
+.campo select:focus {
+  border-color: #e89ab8;
+  outline: none;
+}
+
+#agendamento button {
+  width: 100%;
+  padding: 12px;
+  background-color: #e89ab8;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#agendamento button:hover {
+  background-color: #472080;
+}
+
+
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
