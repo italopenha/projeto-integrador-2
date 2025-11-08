@@ -494,23 +494,43 @@ function renderizarTabela(agendamentos) {
   agendamentos.forEach(ag => {
     const tr = document.createElement('tr');
     
-    const dataAgendamento = new Date(ag.data_agendamento + 'T00:00:00');
+    // Corrigir formato da data (PostgreSQL retorna YYYY-MM-DD)
+    const dataAgendamento = new Date(ag.data_agendamento + 'T12:00:00');
     const hoje = new Date();
     hoje.setHours(0, 0, 0, 0);
     
+    // Comparar apenas as datas, sem hora
+    const dataComparar = new Date(dataAgendamento);
+    dataComparar.setHours(0, 0, 0, 0);
+    
     let statusBadge;
-    if (dataAgendamento.getTime() === hoje.getTime()) {
+    if (dataComparar.getTime() === hoje.getTime()) {
       statusBadge = '<span class="badge badge-hoje">Hoje</span>';
-    } else if (dataAgendamento > hoje) {
+    } else if (dataComparar > hoje) {
       statusBadge = '<span class="badge badge-futuro">Futuro</span>';
     } else {
       statusBadge = '<span class="badge badge-passado">Realizado</span>';
     }
     
-    const dataCriacao = new Date(ag.data_criacao);
     const dataFormatada = formatarData(ag.data_agendamento);
     const horaFormatada = ag.hora_agendamento.substring(0, 5);
-    const criadoEm = dataCriacao.toLocaleString('pt-BR');
+    
+    // Formatar data de criação
+    let criadoEm = 'N/A';
+    if (ag.data_criacao) {
+      try {
+        const dataCriacao = new Date(ag.data_criacao);
+        criadoEm = dataCriacao.toLocaleString('pt-BR', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+      } catch (e) {
+        console.error('Erro ao formatar data de criação:', e);
+      }
+    }
     
     tr.innerHTML = `
       <td><strong>#${ag.id_agendamento}</strong></td>
@@ -594,14 +614,16 @@ function limparFiltros() {
 // ========================================
 // FUNÇÕES AUXILIARES
 // ========================================
-function formatarData(dataStr) {
-  const data = new Date(dataStr + 'T00:00:00');
-  return data.toLocaleDateString('pt-BR', {
-    day: '2-digit',
-    month: 'short',
-    year: 'numeric'
-  });
+function formatarData(dataString) {
+  if (!dataString) return 'N/A';
+  
+  // Garante que pegamos só a parte da data antes do "T", se existir
+  const dataLimpa = dataString.split('T')[0];
+  
+  const [ano, mes, dia] = dataLimpa.split('-');
+  return `${dia}/${mes}/${ano}`;
 }
+
 
 function formatarTelefone(telefone) {
   const numeros = telefone.replace(/\D/g, '');
