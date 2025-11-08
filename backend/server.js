@@ -216,6 +216,39 @@ app.get('/api/agendamentos', async (req, res) => {
   }
 });
 
+// Deletar agendamento
+app.delete('/api/agendamentos/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    
+    const result = await pool.query(
+      'DELETE FROM pi2.tb_agendamento WHERE id_agendamento = $1 RETURNING *',
+      [id]
+    );
+    
+    if (result.rows.length === 0) {
+      return res.status(404).json({ 
+        sucesso: false, 
+        erro: 'Agendamento não encontrado' 
+      });
+    }
+    
+    console.log(`🗑️ Agendamento #${id} excluído`);
+    
+    res.json({ 
+      sucesso: true, 
+      mensagem: 'Agendamento excluído com sucesso',
+      agendamento: result.rows[0]
+    });
+  } catch (err) {
+    console.error('❌ Erro ao excluir:', err);
+    res.status(500).json({ 
+      sucesso: false, 
+      erro: 'Erro ao excluir agendamento' 
+    });
+  }
+});
+
 // Rota 404 - não encontrada
 app.use((req, res) => {
   res.status(404).json({ 
