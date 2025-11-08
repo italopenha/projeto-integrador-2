@@ -9,6 +9,133 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
+<body>
+
+    <header>
+        <img src="./imgs/logo2.PNG" alt="Logo do Studio" class="logo-img">
+        <div>
+            <h1 class="logo-text">Studio Adriana Soares</h1>
+            <p>Realce sua beleza com naturalidade</p>
+        </div>
+    </header>
+
+    <nav id="navegador">
+        <ul>
+            <a href="#quem-somos">Quem somos</a>
+            <a href="#procedimentos">Procedimentos</a>
+            <a href="#resultados">Resultados</a>
+            <a href="#contato">Contato</a>
+            <a href="#agendamento">Agendamento</a>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section id="quem-somos">
+            <h2>Quem somos</h2>
+            <div class="sobre-nos">
+                <img src="./imgs/perfil.jpg" alt="Equipe de design de sobrancelhas">
+                <div class="texto">
+                    <p>Somos especialistas em design de sobrancelhas, com anos de experiência em realçar a beleza
+                        natural dos nossos clientes.
+                        Nosso estúdio oferece um atendimento personalizado, com técnicas modernas e materiais de alta
+                        qualidade.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="procedimentos">
+            <h2>Procedimentos</h2>
+            <div class="cards">
+
+                <div class="card">
+                    <img src="./imgs/sobrancelhanalinha1.jpg" alt="Design de Sobrancelha">
+                    <h3>Design de Sobrancelha</h3>
+                    <p>Remoção precisa dos fios para um formato perfeito e natural.</p>
+                </div>
+
+                <div class="card">
+                    <img src="./imgs/HennaColoracao.jpg" alt="Henna e coloração">
+                    <h3>Henna e coloração</h3>
+                    <p>Realce o olhar com pigmentação leve e duradoura.</p>
+                </div>
+
+                <div class="card">
+                    <img src="./imgs/depilacaoCorporal.jpg" alt="Depilação Corporal">
+                    <h3>Depilação Corporal</h3>
+                    <p>Preenchimento delicado com efeito fio a fio.</p>
+                </div>
+
+                <div class="card">
+                    <img src="./imgs/Laminacao.jpg" alt="Brow Lamination">
+                    <h3>Brow Lamination</h3>
+                    <p>Alinhamento e fixação dos fios para um olhar marcante e bem definido.</p>
+                </div>
+
+                <div class="card">
+                    <img src="./imgs/SobrancelhaMasculina.jpg" alt="Design para homens">
+                    <h3>Design para homens</h3>
+                    <p>Modelagem discreta e natural, respeitando o formato facial masculino.</p>
+                </div>
+
+                <div class="card">
+                    <img src="./imgs/depilacaofacial.jpg" alt="Depilação facial">
+                    <h3>Depilação facial</h3>
+                    <p>Remoção delicada dos pelos do rosto para uma pele lisa e uniforme.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="resultados">
+            <h2>Resultados</h2>
+            <p>Confira alguns antes e depois:</p>
+            <div class="antes-depois">
+                <img src="./imgs/sobrancelhas1.jpg" alt="Antes e depois 1">
+                <img src="./imgs/sobrancelhas2.jpg" alt="Antes e depois 2">
+                <img src="./imgs/sobrancelhas3.jpg" alt="Antes e depois 3">
+            </div>
+        </section>
+
+        <section id="agendamento">
+            <h2>Agende seu horário online</h2>
+
+            <form id="formAgendamento">
+                <div class="campo">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+
+                <div class="campo">
+                    <label for="telefone">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+                </div>
+
+                <div class="campo">
+                    <label for="servico">Serviço:</label>
+                    <select id="servico" name="servico" required>
+                        <option value="">Carregando serviços...</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="data">Data:</label>
+                    <input type="date" id="data" name="data" required>
+                </div>
+
+                <div class="campo">
+                    <label for="hora">Hora:</label>
+                    <input type="time" id="hora" name="hora" required>
+                </div>
+
+                <button type="submit">Agendar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Studio de Sobrancelhas. Todos os direitos reservados.</p>
+    </footer>
+
 <script>
     // const API_URL = 'http://localhost:3000/api'; // Para desenvolvimento local
     const API_URL = 'https://projeto-integrador-2-57bv.onrender.com/api'; 
@@ -123,136 +250,6 @@
         }
     });
 </script>
-
-<body>
-
-    <header>
-        <img src="./imgs/logo2.PNG" alt="Logo do Studio" class="logo-img">
-        <div>
-            <h1 class="logo-text">Studio Adriana Soares</h1>
-            <p>Realce sua beleza com naturalidade</p>
-        </div>
-    </header>
-
-    <nav id="navegador">
-        <ul>
-            <a href="#quem-somos">Quem somos</a>
-            <a href="#procedimentos">Procedimentos</a>
-            <a href="#resultados">Resultados</a>
-            <a href="#contato">Contato</a>
-            <a href="#agendamento">Agendamento</a>
-        </ul>
-    </nav>
-
-    <main class="container">
-        <section id="quem-somos">
-            <h2>Quem somos</h2>
-            <div class="sobre-nos">
-                <img src="./imgs/perfil.jpg" alt="Equipe de design de sobrancelhas">
-                <div class="texto">
-                    <p>Somos especialistas em design de sobrancelhas, com anos de experiência em realçar a beleza
-                        natural dos nossos clientes.
-                        Nosso estúdio oferece um atendimento personalizado, com técnicas modernas e materiais de alta
-                        qualidade.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="procedimentos">
-            <h2>Procedimentos</h2>
-            <div class="cards">
-
-                <div class="card">
-                    <img src="./imgs/sobrancelhanalinha1.jpg" alt="Design de Sobrancelha">
-                    <h3>Design de Sobrancelha</h3>
-                    <p>Remoção precisa dos fios para um formato perfeito e natural.</p>
-                </div>
-
-                <div class="card">
-                    <img src="./imgs/HennaColoracao.jpg" alt="Henna e coloração">
-                    <h3>Henna e coloração</h3>
-                    <p>Realce o olhar com pigmentação leve e duradoura.</p>
-                </div>
-
-                <div class="card">
-                    <img src="./imgs/depilacaoCorporal.jpg" alt="Depilação Corporal">
-                    <h3>Depilação Corporal</h3>
-                    <p>Preenchimento delicado com efeito fio a fio.</p>
-                </div>
-
-                <div class="card">
-                    <img src="./imgs/Laminacao.jpg" alt="Brow Lamination">
-                    <h3>Brow Lamination</h3>
-                    <p>Alinhamento e fixação dos fios para um olhar marcante e bem definido.</p>
-                </div>
-
-                <div class="card">
-                    <img src="./imgs/SobrancelhaMasculina.jpg" alt="Design para homens">
-                    <h3>Design para homens</h3>
-                    <p>Modelagem discreta e natural, respeitando o formato facial masculino.</p>
-                </div>
-
-                <div class="card">
-                    <img src="./imgs/depilacaofacial.jpg" alt="Depilação facial">
-                    <h3>Depilação facial</h3>
-                    <p>Remoção delicada dos pelos do rosto para uma pele lisa e uniforme.</p>
-                </div>
-
-            </div>
-        </section>
-
-
-
-        <section id="resultados">
-            <h2>Resultados</h2>
-            <p>Confira alguns antes e depois:</p>
-            <div class="antes-depois">
-                <img src="./imgs/sobrancelhas1.jpg" alt="Antes e depois 1">
-                <img src="./imgs/sobrancelhas2.jpg" alt="Antes e depois 2">
-                <img src="./imgs/sobrancelhas3.jpg" alt="Antes e depois 3">
-            </div>
-        </section>
-
-
-        <section id="agendamento">
-            <h2>Agende seu horário online</h2>
-
-            <form id="formAgendamento">
-                <div class="campo">
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" required>
-                </div>
-
-                <div class="campo">
-                    <label for="telefone">Telefone:</label>
-                    <input type="tel" id="telefone" name="telefone" required>
-                </div>
-
-                <div class="campo">
-                    <label for="servico">Serviço:</label>
-                    <select id="servico" name="servico" required>
-                        <option value="">Carregando serviços...</option>
-                    </select>
-                </div>
-
-                <div class="campo">
-                    <label for="data">Data:</label>
-                    <input type="date" id="data" name="data" required>
-                </div>
-
-                <div class="campo">
-                    <label for="hora">Hora:</label>
-                    <input type="time" id="hora" name="hora" required>
-                </div>
-
-                <button type="submit">Agendar</button>
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Studio de Sobrancelhas. Todos os direitos reservados.</p>
-    </footer>
 
 </body>
 
