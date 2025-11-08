@@ -1,547 +1,565 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin - Studio Adriana Soares</title>
-  <link rel="shortcut icon" href="./imgs/favicon.ico" type="image/x-icon">
-<style>
-:root {
-    --rosa-claro: #f8c8dc;
-    --rosa-bebe: #fddde6;
-    --rosa-escuro: #e89ab8;
-    --branco: #ffffff;
-    --cinza: #555;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin - Studio Adriana Soares</title>
+    <link rel="shortcut icon" href="./imgs/favicon.ico" type="image/x-icon">
+    <style>
+        :root {
+            --rosa-claro: #f8c8dc;
+            --rosa-bebe: #fddde6;
+            --rosa-escuro: #e89ab8;
+            --branco: #ffffff;
+            --cinza: #555;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, var(--rosa-bebe) 0%, var(--rosa-claro) 100%);
-    min-height: 100vh;
-    padding: 20px;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--rosa-bebe) 0%, var(--rosa-claro) 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-}
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
-header {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    margin-bottom: 30px;
-    text-align: center;
-}
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(232, 154, 184, 0.3);
+            margin-bottom: 30px;
+            text-align: center;
+            border-top: 4px solid var(--rosa-escuro);
+        }
 
-h1 {
-    color: #667eea;
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
+        h1 {
+            color: var(--rosa-escuro);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
 
-.stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-bottom: 30px;
-}
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
 
-.stat-card {
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    text-align: center;
-    transition: transform 0.3s;
-}
+        .stat-card {
+            background: var(--branco);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(232, 154, 184, 0.2);
+            text-align: center;
+            transition: transform 0.3s;
+            border-left: 4px solid var(--rosa-claro);
+        }
 
-.stat-card:hover {
-    transform: translateY(-5px);
-}
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(232, 154, 184, 0.3);
+        }
 
-.stat-number {
-    font-size: 3em;
-    font-weight: bold;
-    color: #667eea;
-    margin-bottom: 10px;
-}
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            color: var(--rosa-escuro);
+            margin-bottom: 10px;
+        }
 
-.stat-label {
-    color: #666;
-    font-size: 1.1em;
-}
+        .stat-label {
+            color: var(--cinza);
+            font-size: 1.1em;
+        }
 
-.filters {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    margin-bottom: 30px;
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    align-items: center;
-}
+        .filters {
+            background: var(--branco);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(232, 154, 184, 0.2);
+            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
 
-.filters input,
-.filters select,
-.filters button {
-    padding: 12px 20px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    font-size: 1em;
-    transition: all 0.3s;
-}
+        .filters input,
+        .filters select,
+        .filters button {
+            padding: 12px 20px;
+            border: 2px solid var(--rosa-claro);
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
 
-.filters input:focus,
-.filters select:focus {
-    outline: none;
-    border-color: #667eea;
-}
+        .filters input:focus,
+        .filters select:focus {
+            outline: none;
+            border-color: var(--rosa-escuro);
+        }
 
-.filters button {
-    background: #667eea;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
+        .filters button {
+            background: var(--rosa-escuro);
+            color: var(--branco);
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-.filters button:hover {
-    background: #5568d3;
-    transform: translateY(-2px);
-}
+        .filters button:hover {
+            background: var(--rosa-claro);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(232, 154, 184, 0.3);
+        }
 
-.table-container {
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    overflow-x: auto;
-}
+        .table-container {
+            background: var(--branco);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(232, 154, 184, 0.3);
+            overflow-x: auto;
+        }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 800px;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
 
-thead {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-}
+        thead {
+            /* background: linear-gradient(135deg, var(--rosa-escuro) 0%, var(--rosa-claro) 100%); */
+            background: var(--rosa-escuro);
+            color: var(--branco);
+        }
 
-th {
-    padding: 18px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 1em;
-    letter-spacing: 0.5px;
-}
+        th {
+            padding: 18px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1em;
+            letter-spacing: 0.5px;
+        }
 
-#table-header-left {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
+        .border-left {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
 
-#table-header-right {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
+        .border-right{
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
 
-td {
-    padding: 15px 18px;
-    border-bottom: 1px solid #eee;
-    color: #333;
-}
+        td {
+            padding: 15px 18px;
+            border-bottom: 1px solid var(--rosa-bebe);
+            color: var(--cinza);
+        }
 
-tbody tr {
-    transition: background 0.2s;
-}
+        tbody tr {
+            transition: background 0.2s;
+        }
 
-tbody tr:hover {
-    background: #f8f9ff;
-}
+        tbody tr:hover {
+            background: var(--rosa-bebe);
+        }
 
-.badge {
-    display: inline-block;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.85em;
-    font-weight: 600;
-}
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
 
-.badge-hoje {
-    background: #4ade80;
-    color: white;
-}
+        .badge-hoje {
+            background: #10b981;
+            color: white;
+        }
 
-.badge-futuro {
-    background: #60a5fa;
-    color: white;
-}
+        .badge-futuro {
+            background: var(--rosa-escuro);
+            color: white;
+        }
 
-.badge-passado {
-    background: #f87171;
-    color: white;
-}
+        .badge-passado {
+            background: #d1d5db;
+            color: var(--cinza);
+        }
 
-.loading {
-    text-align: center;
-    padding: 60px;
-    font-size: 1.3em;
-    color: #667eea;
-}
+        .loading {
+            text-align: center;
+            padding: 60px;
+            font-size: 1.3em;
+            color: var(--rosa-escuro);
+        }
 
-.loading::after {
-    content: '...';
-    animation: dots 1.5s steps(3, end) infinite;
-}
+        .loading::after {
+            content: '...';
+            animation: dots 1.5s steps(3, end) infinite;
+        }
 
-@keyframes dots {
-    0%, 20% { content: '.'; }
-    40% { content: '..'; }
-    60%, 100% { content: '...'; }
-}
+        @keyframes dots {
 
-.empty {
-    text-align: center;
-    padding: 60px;
-    color: #999;
-    font-size: 1.2em;
-}
+            0%,
+            20% {
+                content: '.';
+            }
 
-.error {
-    background: #fee;
-    color: #c33;
-    padding: 20px;
-    border-radius: 10px;
-    border-left: 4px solid #c33;
-    margin-bottom: 20px;
-}
+            40% {
+                content: '..';
+            }
 
-.actions {
-    display: flex;
-    gap: 8px;
-}
+            60%,
+            100% {
+                content: '...';
+            }
+        }
 
-.btn-small {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.85em;
-    transition: all 0.2s;
-}
+        .empty {
+            text-align: center;
+            padding: 60px;
+            color: var(--cinza);
+            font-size: 1.2em;
+        }
 
-.btn-delete {
-    background: #ef4444;
-    color: white;
-}
+        .error {
+            background: #fee;
+            color: #c33;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #c33;
+            margin-bottom: 20px;
+        }
 
-.btn-delete:hover {
-    background: #dc2626;
-    transform: scale(1.05);
-}
+        .actions {
+            display: flex;
+            gap: 8px;
+        }
 
-.back-link {
-    margin-top: 30px;
-    text-align: center;
-}
+        .btn-small {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85em;
+            transition: all 0.2s;
+        }
 
-.back-link a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    background: #667eea;
-    padding: 10px 20px;
-    border-radius: 8px;
-    transition: background 0.3s;
-}
+        .btn-delete {
+            background: #ef4444;
+            color: white;
+        }
 
-@media (max-width: 768px) {
-    h1 {
-    font-size: 1.8em;
-    }
+        .btn-delete:hover {
+            background: #dc2626;
+            transform: scale(1.05);
+        }
 
-    .filters {
-    flex-direction: column;
-    }
+        .back-link {
+            margin-top: 30px;
+            text-align: center;
+        }
 
-    .filters input,
-    .filters select,
-    .filters button {
-    width: 100%;
-    }
+        .back-link a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--rosa-escuro);
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
 
-    .table-container {
-    padding: 15px;
-    }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
 
-    th, td {
-    padding: 10px;
-    font-size: 0.9em;
-    }
-}
-</style>
+            .filters {
+                flex-direction: column;
+            }
+
+            .filters input,
+            .filters select,
+            .filters button {
+                width: 100%;
+            }
+
+            .table-container {
+                padding: 15px;
+            }
+
+            th,
+            td {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="container">
-  <header>
-    <h1>💅 Painel Administrativo</h1>
-    <p>Studio Adriana Soares - Gerenciamento de Agendamentos</p>
-  </header>
+    <div class="container">
+        <header>
+            <h1>💅 Painel Administrativo</h1>
+            <p>Studio Adriana Soares - Gerenciamento de Agendamentos</p>
+        </header>
 
-  <div class="stats" id="stats">
-    <div class="stat-card">
-      <div class="stat-number" id="totalAgendamentos">-</div>
-      <div class="stat-label">Total de Agendamentos</div>
+        <div class="stats" id="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="totalAgendamentos">-</div>
+                <div class="stat-label">Total de Agendamentos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="agendamentosHoje">-</div>
+                <div class="stat-label">Agendamentos Hoje</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="agendamentosFuturos">-</div>
+                <div class="stat-label">Próximos Agendamentos</div>
+            </div>
+        </div>
+
+        <div class="filters">
+            <input type="text" id="filtroNome" placeholder="🔍 Buscar por nome...">
+            <input type="date" id="filtroData" placeholder="Filtrar por data">
+            <select id="filtroServico">
+                <option value="">Todos os Serviços</option>
+            </select>
+            <button onclick="carregarAgendamentos()">🔄 Atualizar</button>
+            <button onclick="limparFiltros()">✖️ Limpar Filtros</button>
+        </div>
+
+        <div id="errorContainer"></div>
+
+        <div class="table-container">
+            <div id="loadingContainer" class="loading">
+                Carregando agendamentos
+            </div>
+
+            <table id="tabelaAgendamentos" style="display: none;">
+                <thead>
+                    <tr>
+                        <th class="border-left">#</th>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                        <th>Serviço</th>
+                        <th>Data</th>
+                        <th>Hora</th>
+                        <!-- <th>Status</th> -->
+                        <th>Criado em</th>
+                        <th class="border-right">Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="corpoTabela">
+                </tbody>
+            </table>
+
+            <div id="emptyContainer" class="empty" style="display: none;">
+                📋 Nenhum agendamento encontrado
+            </div>
+        </div>
+
+        <div class="back-link">
+            <a href="index.html">↩️ Voltar para a página principal</a>
+        </div>
     </div>
-    <div class="stat-card">
-      <div class="stat-number" id="agendamentosHoje">-</div>
-      <div class="stat-label">Agendamentos Hoje</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-number" id="agendamentosFuturos">-</div>
-      <div class="stat-label">Próximos Agendamentos</div>
-    </div>
-  </div>
 
-  <div class="filters">
-    <input type="text" id="filtroNome" placeholder="🔍 Buscar por nome...">
-    <input type="date" id="filtroData" placeholder="Filtrar por data">
-    <select id="filtroServico">
-      <option value="">Todos os Serviços</option>
-    </select>
-    <button onclick="carregarAgendamentos()">🔄 Atualizar</button>
-    <button onclick="limparFiltros()">✖️ Limpar Filtros</button>
-  </div>
+    <script>
+        // Configuração da API
+        const API_URL = 'https://projeto-integrador-2-57bv.onrender.com/api';
 
-  <div id="errorContainer"></div>
+        let todosAgendamentos = [];
+        let servicos = [];
 
-  <div class="table-container">
-    <div id="loadingContainer" class="loading">
-      Carregando agendamentos
-    </div>
+        // ========================================
+        // CARREGAR DADOS INICIAIS
+        // ========================================
+        document.addEventListener('DOMContentLoaded', async function () {
+            console.log('🔄 Iniciando painel admin...');
 
-    <table id="tabelaAgendamentos" style="display: none;">
-      <thead>
-        <tr>
-          <th id="table-header-left">#</th>
-          <th>Nome</th>
-          <th>Telefone</th>
-          <th>Serviço</th>
-          <th>Data</th>
-          <th>Hora</th>
-          <th>Status</th>
-          <th>Criado em</th>
-          <th id="table-header-right">Ações</th>
-        </tr>
-      </thead>
-      <tbody id="corpoTabela">
-      </tbody>
-    </table>
+            await carregarServicos();
+            await carregarAgendamentos();
 
-    <div id="emptyContainer" class="empty" style="display: none;">
-      📋 Nenhum agendamento encontrado
-    </div>
-  </div>
+            // Adicionar listeners nos filtros
+            document.getElementById('filtroNome').addEventListener('input', filtrarAgendamentos);
+            document.getElementById('filtroData').addEventListener('change', filtrarAgendamentos);
+            document.getElementById('filtroServico').addEventListener('change', filtrarAgendamentos);
+        });
 
-    <div class="back-link">
-        <a href="index.html">↩️ Voltar para a página principal</a>
-    </div>
-</div>
+        // ========================================
+        // CARREGAR SERVIÇOS (para filtro)
+        // ========================================
+        async function carregarServicos() {
+            try {
+                const response = await fetch(`${API_URL}/servicos`);
+                servicos = await response.json();
 
-<script>
-// Configuração da API
-const API_URL = 'https://projeto-integrador-2-57bv.onrender.com/api';
+                const select = document.getElementById('filtroServico');
+                servicos.forEach(servico => {
+                    const option = document.createElement('option');
+                    option.value = servico.nome_servico;
+                    option.textContent = servico.nome_servico;
+                    select.appendChild(option);
+                });
+            } catch (erro) {
+                console.error('❌ Erro ao carregar serviços:', erro);
+            }
+        }
 
-let todosAgendamentos = [];
-let servicos = [];
+        // ========================================
+        // CARREGAR AGENDAMENTOS
+        // ========================================
+        async function carregarAgendamentos() {
+            const loadingDiv = document.getElementById('loadingContainer');
+            const tabela = document.getElementById('tabelaAgendamentos');
+            const emptyDiv = document.getElementById('emptyContainer');
+            const errorDiv = document.getElementById('errorContainer');
 
-// ========================================
-// CARREGAR DADOS INICIAIS
-// ========================================
-document.addEventListener('DOMContentLoaded', async function() {
-  console.log('🔄 Iniciando painel admin...');
-  
-  await carregarServicos();
-  await carregarAgendamentos();
-  
-  // Adicionar listeners nos filtros
-  document.getElementById('filtroNome').addEventListener('input', filtrarAgendamentos);
-  document.getElementById('filtroData').addEventListener('change', filtrarAgendamentos);
-  document.getElementById('filtroServico').addEventListener('change', filtrarAgendamentos);
-});
+            loadingDiv.style.display = 'block';
+            tabela.style.display = 'none';
+            emptyDiv.style.display = 'none';
+            errorDiv.innerHTML = '';
 
-// ========================================
-// CARREGAR SERVIÇOS (para filtro)
-// ========================================
-async function carregarServicos() {
-  try {
-    const response = await fetch(`${API_URL}/servicos`);
-    servicos = await response.json();
-    
-    const select = document.getElementById('filtroServico');
-    servicos.forEach(servico => {
-      const option = document.createElement('option');
-      option.value = servico.nome_servico;
-      option.textContent = servico.nome_servico;
-      select.appendChild(option);
-    });
-  } catch (erro) {
-    console.error('❌ Erro ao carregar serviços:', erro);
-  }
-}
+            try {
+                console.log('📡 Buscando agendamentos...');
 
-// ========================================
-// CARREGAR AGENDAMENTOS
-// ========================================
-async function carregarAgendamentos() {
-  const loadingDiv = document.getElementById('loadingContainer');
-  const tabela = document.getElementById('tabelaAgendamentos');
-  const emptyDiv = document.getElementById('emptyContainer');
-  const errorDiv = document.getElementById('errorContainer');
-  
-  loadingDiv.style.display = 'block';
-  tabela.style.display = 'none';
-  emptyDiv.style.display = 'none';
-  errorDiv.innerHTML = '';
-  
-  try {
-    console.log('📡 Buscando agendamentos...');
-    
-    const response = await fetch(`${API_URL}/agendamentos`);
-    
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-    }
-    
-    const data = await response.json();
-    todosAgendamentos = data.agendamentos || [];
-    
-    console.log(`✅ ${todosAgendamentos.length} agendamentos carregados`);
-    
-    loadingDiv.style.display = 'none';
-    
-    if (todosAgendamentos.length === 0) {
-      emptyDiv.style.display = 'block';
-    } else {
-      tabela.style.display = 'table';
-      filtrarAgendamentos();
-    }
-    
-    atualizarEstatisticas();
-    
-  } catch (erro) {
-    console.error('❌ Erro ao carregar agendamentos:', erro);
-    
-    loadingDiv.style.display = 'none';
-    errorDiv.innerHTML = `
+                const response = await fetch(`${API_URL}/agendamentos`);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                todosAgendamentos = data.agendamentos || [];
+
+                console.log(`✅ ${todosAgendamentos.length} agendamentos carregados`);
+
+                loadingDiv.style.display = 'none';
+
+                if (todosAgendamentos.length === 0) {
+                    emptyDiv.style.display = 'block';
+                } else {
+                    tabela.style.display = 'table';
+                    filtrarAgendamentos();
+                }
+
+                atualizarEstatisticas();
+
+            } catch (erro) {
+                console.error('❌ Erro ao carregar agendamentos:', erro);
+
+                loadingDiv.style.display = 'none';
+                errorDiv.innerHTML = `
       <div class="error">
         <strong>❌ Erro ao carregar agendamentos</strong><br>
         ${erro.message}<br>
         <small>Verifique se a API está rodando e tente novamente.</small>
       </div>
     `;
-  }
-}
+            }
+        }
 
-// ========================================
-// FILTRAR AGENDAMENTOS
-// ========================================
-function filtrarAgendamentos() {
-  const filtroNome = document.getElementById('filtroNome').value.toLowerCase();
-  const filtroData = document.getElementById('filtroData').value;
-  const filtroServico = document.getElementById('filtroServico').value;
-  
-  let agendamentosFiltrados = todosAgendamentos.filter(ag => {
-    const matchNome = !filtroNome || ag.nome.toLowerCase().includes(filtroNome);
-    const matchData = !filtroData || ag.data_agendamento === filtroData;
-    const matchServico = !filtroServico || ag.servico === filtroServico;
-    
-    return matchNome && matchData && matchServico;
-  });
-  
-  renderizarTabela(agendamentosFiltrados);
-}
+        // ========================================
+        // FILTRAR AGENDAMENTOS
+        // ========================================
+        function filtrarAgendamentos() {
+            const filtroNome = document.getElementById('filtroNome').value.toLowerCase();
+            const filtroData = document.getElementById('filtroData').value;
+            const filtroServico = document.getElementById('filtroServico').value;
 
-// ========================================
-// RENDERIZAR TABELA
-// ========================================
-function renderizarTabela(agendamentos) {
-  const tbody = document.getElementById('corpoTabela');
-  tbody.innerHTML = '';
-  
-  if (agendamentos.length === 0) {
-    document.getElementById('tabelaAgendamentos').style.display = 'none';
-    document.getElementById('emptyContainer').style.display = 'block';
-    return;
-  }
-  
-  document.getElementById('tabelaAgendamentos').style.display = 'table';
-  document.getElementById('emptyContainer').style.display = 'none';
-  
-  agendamentos.forEach(ag => {
-    const tr = document.createElement('tr');
-    
-    // Corrigir formato da data (PostgreSQL retorna YYYY-MM-DD)
-    const dataAgendamento = new Date(ag.data_agendamento + 'T12:00:00');
-    const hoje = new Date();
-    hoje.setHours(0, 0, 0, 0);
-    
-    // Comparar apenas as datas, sem hora
-    const dataComparar = new Date(dataAgendamento);
-    dataComparar.setHours(0, 0, 0, 0);
-    
-    let statusBadge;
-    if (dataComparar.getTime() === hoje.getTime()) {
-      statusBadge = '<span class="badge badge-hoje">Hoje</span>';
-    } else if (dataComparar > hoje) {
-      statusBadge = '<span class="badge badge-futuro">Futuro</span>';
-    } else {
-      statusBadge = '<span class="badge badge-passado">Realizado</span>';
-    }
-    
-    const dataFormatada = formatarData(ag.data_agendamento);
-    const horaFormatada = ag.hora_agendamento.substring(0, 5);
-    
-    // Formatar data de criação
-    let criadoEm = 'N/A';
-    if (ag.data_criacao) {
-      try {
-        const dataCriacao = new Date(ag.data_criacao);
-        criadoEm = dataCriacao.toLocaleString('pt-BR', {
-          day: '2-digit',
-          month: '2-digit',
-          year: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit'
-        });
-      } catch (e) {
-        console.error('Erro ao formatar data de criação:', e);
-      }
-    }
-    
-    tr.innerHTML = `
-      <td><strong>#${ag.id_agendamento}</strong></td>
+            let agendamentosFiltrados = todosAgendamentos.filter(ag => {
+                const matchNome = !filtroNome || ag.nome.toLowerCase().includes(filtroNome);
+                const matchData = !filtroData || ag.data_agendamento === filtroData;
+                const matchServico = !filtroServico || ag.servico === filtroServico;
+
+                return matchNome && matchData && matchServico;
+            });
+
+            renderizarTabela(agendamentosFiltrados);
+        }
+
+        // ========================================
+        // RENDERIZAR TABELA
+        // ========================================
+        function renderizarTabela(agendamentos) {
+            const tbody = document.getElementById('corpoTabela');
+            tbody.innerHTML = '';
+
+            if (agendamentos.length === 0) {
+                document.getElementById('tabelaAgendamentos').style.display = 'none';
+                document.getElementById('emptyContainer').style.display = 'block';
+                return;
+            }
+
+            document.getElementById('tabelaAgendamentos').style.display = 'table';
+            document.getElementById('emptyContainer').style.display = 'none';
+
+            agendamentos.forEach(ag => {
+                const tr = document.createElement('tr');
+
+                // Corrigir formato da data (PostgreSQL retorna YYYY-MM-DD)
+                const dataAgendamento = new Date(ag.data_agendamento + 'T12:00:00');
+                const hoje = new Date();
+                hoje.setHours(0, 0, 0, 0);
+
+                // Comparar apenas as datas, sem hora
+                const dataComparar = new Date(dataAgendamento);
+                dataComparar.setHours(0, 0, 0, 0);
+
+                let statusBadge;
+                if (dataComparar.getTime() === hoje.getTime()) {
+                    statusBadge = '<span class="badge badge-hoje">Hoje</span>';
+                } else if (dataComparar > hoje) {
+                    statusBadge = '<span class="badge badge-futuro">Futuro</span>';
+                } else {
+                    statusBadge = '<span class="badge badge-passado">Realizado</span>';
+                }
+
+                const dataFormatada = formatarData(ag.data_agendamento);
+                const horaFormatada = ag.hora_agendamento.substring(0, 5);
+
+                // Formatar data de criação
+                let criadoEm = 'N/A';
+                if (ag.data_criacao) {
+                    try {
+                        const dataCriacao = new Date(ag.data_criacao);
+                        criadoEm = dataCriacao.toLocaleString('pt-BR', {
+                            day: '2-digit',
+                            month: '2-digit',
+                            year: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        });
+                    } catch (e) {
+                        console.error('Erro ao formatar data de criação:', e);
+                    }
+                }
+
+                tr.innerHTML = `
+      <td class="border-left"><strong>#${ag.id_agendamento}</strong></td>
       <td>${ag.nome}</td>
       <td>${formatarTelefone(ag.telefone)}</td>
       <td>${ag.servico}</td>
       <td>${dataFormatada}</td>
       <td><strong>${horaFormatada}</strong></td>
-      <td>${statusBadge}</td>
       <td><small>${criadoEm}</small></td>
-      <td>
+      <td class="border-right">
         <div class="actions">
           <button class="btn-small btn-delete" onclick="deletarAgendamento(${ag.id_agendamento})">
             🗑️ Excluir
@@ -549,95 +567,96 @@ function renderizarTabela(agendamentos) {
         </div>
       </td>
     `;
-    
-    tbody.appendChild(tr);
-  });
-}
 
-// ========================================
-// ATUALIZAR ESTATÍSTICAS
-// ========================================
-function atualizarEstatisticas() {
-  const hoje = new Date();
-  hoje.setHours(0, 0, 0, 0);
-  
-  const agendamentosHoje = todosAgendamentos.filter(ag => {
-    const dataAg = new Date(ag.data_agendamento + 'T00:00:00');
-    return dataAg.getTime() === hoje.getTime();
-  }).length;
-  
-  const agendamentosFuturos = todosAgendamentos.filter(ag => {
-    const dataAg = new Date(ag.data_agendamento + 'T00:00:00');
-    return dataAg > hoje;
-  }).length;
-  
-  document.getElementById('totalAgendamentos').textContent = todosAgendamentos.length;
-  document.getElementById('agendamentosHoje').textContent = agendamentosHoje;
-  document.getElementById('agendamentosFuturos').textContent = agendamentosFuturos;
-}
+                tbody.appendChild(tr);
+            });
+        }
 
-// ========================================
-// DELETAR AGENDAMENTO
-// ========================================
-async function deletarAgendamento(id) {
-  if (!confirm('Tem certeza que deseja excluir este agendamento?')) {
-    return;
-  }
+        // ========================================
+        // ATUALIZAR ESTATÍSTICAS
+        // ========================================
+        function atualizarEstatisticas() {
+            const hoje = new Date();
+            hoje.setHours(0, 0, 0, 0);
 
-  try {
-    const response = await fetch(`${API_URL}/agendamentos/${id}`, {
-      method: 'DELETE'
-    });
-    
-    if (response.ok) {
-      alert('✅ Agendamento excluído com sucesso!');
-      carregarAgendamentos();
-    } else {
-      alert('❌ Erro ao excluir agendamento');
-    }
-  } catch (erro) {
-    console.error('❌ Erro:', erro);
-    alert('❌ Erro ao conectar com o servidor');
-  }
-}
+            const agendamentosHoje = todosAgendamentos.filter(ag => {
+                const dataAg = new Date(ag.data_agendamento + 'T00:00:00');
+                return dataAg.getTime() === hoje.getTime();
+            }).length;
 
-// ========================================
-// LIMPAR FILTROS
-// ========================================
-function limparFiltros() {
-  document.getElementById('filtroNome').value = '';
-  document.getElementById('filtroData').value = '';
-  document.getElementById('filtroServico').value = '';
-  filtrarAgendamentos();
-}
+            const agendamentosFuturos = todosAgendamentos.filter(ag => {
+                const dataAg = new Date(ag.data_agendamento + 'T00:00:00');
+                return dataAg > hoje;
+            }).length;
 
-// ========================================
-// FUNÇÕES AUXILIARES
-// ========================================
-function formatarData(dataString) {
-  if (!dataString) return 'N/A';
-  
-  // Garante que pegamos só a parte da data antes do "T", se existir
-  const dataLimpa = dataString.split('T')[0];
-  
-  const [ano, mes, dia] = dataLimpa.split('-');
-  return `${dia}/${mes}/${ano}`;
-}
+            document.getElementById('totalAgendamentos').textContent = todosAgendamentos.length;
+            document.getElementById('agendamentosHoje').textContent = agendamentosHoje;
+            document.getElementById('agendamentosFuturos').textContent = agendamentosFuturos;
+        }
+
+        // ========================================
+        // DELETAR AGENDAMENTO
+        // ========================================
+        async function deletarAgendamento(id) {
+            if (!confirm('Tem certeza que deseja excluir este agendamento?')) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_URL}/agendamentos/${id}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    alert('✅ Agendamento excluído com sucesso!');
+                    carregarAgendamentos();
+                } else {
+                    alert('❌ Erro ao excluir agendamento');
+                }
+            } catch (erro) {
+                console.error('❌ Erro:', erro);
+                alert('❌ Erro ao conectar com o servidor');
+            }
+        }
+
+        // ========================================
+        // LIMPAR FILTROS
+        // ========================================
+        function limparFiltros() {
+            document.getElementById('filtroNome').value = '';
+            document.getElementById('filtroData').value = '';
+            document.getElementById('filtroServico').value = '';
+            filtrarAgendamentos();
+        }
+
+        // ========================================
+        // FUNÇÕES AUXILIARES
+        // ========================================
+        function formatarData(dataString) {
+            if (!dataString) return 'N/A';
+
+            // Garante que pegamos só a parte da data antes do "T", se existir
+            const dataLimpa = dataString.split('T')[0];
+
+            const [ano, mes, dia] = dataLimpa.split('-');
+            return `${dia}/${mes}/${ano}`;
+        }
 
 
-function formatarTelefone(telefone) {
-  const numeros = telefone.replace(/\D/g, '');
-  if (numeros.length === 11) {
-    return `(${numeros.substring(0, 2)}) ${numeros.substring(2, 7)}-${numeros.substring(7)}`;
-  }
-  return telefone;
-}
+        function formatarTelefone(telefone) {
+            const numeros = telefone.replace(/\D/g, '');
+            if (numeros.length === 11) {
+                return `(${numeros.substring(0, 2)}) ${numeros.substring(2, 7)}-${numeros.substring(7)}`;
+            }
+            return telefone;
+        }
 
-console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-console.log('💅 Painel Admin - Studio Adriana Soares');
-console.log('🔗 API URL:', API_URL);
-console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-</script>
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+        console.log('💅 Painel Admin - Studio Adriana Soares');
+        console.log('🔗 API URL:', API_URL);
+        console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    </script>
 
 </body>
+
 </html>
