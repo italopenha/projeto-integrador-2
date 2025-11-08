@@ -6,6 +6,14 @@
   <title>Admin - Studio Adriana Soares</title>
   <link rel="shortcut icon" href="./imgs/favicon.ico" type="image/x-icon">
 <style>
+:root {
+    --rosa-claro: #f8c8dc;
+    --rosa-bebe: #fddde6;
+    --rosa-escuro: #e89ab8;
+    --branco: #ffffff;
+    --cinza: #555;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +22,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--rosa-bebe) 0%, var(--rosa-claro) 100%);
     min-height: 100vh;
     padding: 20px;
 }
@@ -137,6 +145,16 @@ th {
     font-weight: 600;
     font-size: 1em;
     letter-spacing: 0.5px;
+}
+
+#table-header-left {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#table-header-right {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 td {
@@ -318,7 +336,7 @@ tbody tr:hover {
     <table id="tabelaAgendamentos" style="display: none;">
       <thead>
         <tr>
-          <th>#</th>
+          <th id="table-header-left">#</th>
           <th>Nome</th>
           <th>Telefone</th>
           <th>Serviço</th>
@@ -326,7 +344,7 @@ tbody tr:hover {
           <th>Hora</th>
           <th>Status</th>
           <th>Criado em</th>
-          <th>Ações</th>
+          <th id="table-header-right">Ações</th>
         </tr>
       </thead>
       <tbody id="corpoTabela">
