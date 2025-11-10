@@ -580,12 +580,16 @@
             hoje.setHours(0, 0, 0, 0);
 
             const agendamentosHoje = todosAgendamentos.filter(ag => {
-                const dataAg = new Date(ag.data_agendamento + 'T00:00:00');
+                const dataString = ag.data_agendamento.split('T')[0]; // pega só "YYYY-MM-DD"
+                const dataAg = new Date(`${dataString}T00:00:00`); // data pura
+                dataAg.setHours(0, 0, 0, 0);
                 return dataAg.getTime() === hoje.getTime();
             }).length;
 
             const agendamentosFuturos = todosAgendamentos.filter(ag => {
-                const dataAg = new Date(ag.data_agendamento + 'T00:00:00');
+                const dataString = ag.data_agendamento.split('T')[0];
+                const dataAg = new Date(`${dataString}T00:00:00`);
+                dataAg.setHours(0, 0, 0, 0);
                 return dataAg > hoje;
             }).length;
 
@@ -593,6 +597,7 @@
             document.getElementById('agendamentosHoje').textContent = agendamentosHoje;
             document.getElementById('agendamentosFuturos').textContent = agendamentosFuturos;
         }
+
 
         // ========================================
         // DELETAR AGENDAMENTO
